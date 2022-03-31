@@ -1,0 +1,37 @@
+<div class="modal" *ngIf="visible">
+  <div class="container">
+    <div>
+      <div class="modalHeader">
+        <h1>{{loginRegister == 'login' ? 'Iniciar sesión' : loginRegister=='register' ? 'Crea una cuenta' : loginRegister=='final' ? 'Verifica tu cuenta' : ''}}</h1>
+        <span (click)="closeModal()">x</span>
+      </div>
+      <div class="modalContent">
+        <div *ngIf="loginRegister === 'login'; else registerf">
+          <login></login>
+        </div>
+
+        <ng-template #registerf>
+          <div *ngIf="loginRegister === 'register'; else final">
+            <register></register>
+          </div>
+        </ng-template>
+
+        <ng-template #final>
+          <div *ngIf="loginRegister === 'final'">
+            <final></final>
+          </div>
+        </ng-template>
+      </div>
+      <footer *ngIf="loginRegister == 'login'; else register">
+        <p>¿No tienes cuenta? <span (click)="evento('register')"><u>Crea una cuenta</u></span></p>
+      </footer>
+      <ng-template #register>
+        <footer *ngIf="loginRegister == 'register'; else finall">
+          <p>¿Ya tienes cuenta? <span (click)="evento('login')"><u>Inicia sesión</u></span></p>
+        </footer>
+      </ng-template>
+      <ng-template #finall>
+      </ng-template>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<input
+type="email"
+name="email"
+id="idEmail"
+class="email m-md-t-1"
+placeholder="Tu correo electrónico"
+[(ngModel)]="email"
+(blur)="validateEmail()"
+(keyup)="validateEmail()"
+[class.input-error]="msj"/>
+
+<span 
+class="error"
+*ngIf="required"><strong>{{msj}}</strong></span>

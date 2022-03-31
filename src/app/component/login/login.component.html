@@ -1,0 +1,7 @@
+<div class="m-md-t-3">
+    <hr>
+    <input-email (sendEmail)="getEmail($event)"></input-email>
+    <input-password (sendPass)="getPassword($event)" ></input-password>
+    <span class="error"><strong>{{msj}}</strong></span>
+    <button class="primary m-md-t-2" (click)="validate()">Entrar</button>
+</div>

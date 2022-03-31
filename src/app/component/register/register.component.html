@@ -1,0 +1,9 @@
+<div class="m-md-t-2">
+    <input-email (sendEmail)="getEmail($event)"></input-email>
+    <input-password (sendPass)="password($event)" [visible]=true></input-password>
+    <confirm-password (sendPassConfirm)="passwordConfirm($event)"></confirm-password>
+    <span class="error"><strong>{{msj}}</strong></span>
+    <br>
+    <hr>
+    <button class="primary m-md-t-1" [class.disabled]="!disabledd" (click)="confirmPassword()" [disabled]="!disabledd">Crear Cuenta</button>
+</div>
